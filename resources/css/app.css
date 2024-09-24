@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: rgb(14, 12, 20);
+}
+
+
+.active-link {
+    @apply text-white dark:text-white font-bold; /* Tailwind CSS utility classes */
+}
+
+.inactive-link {
+    @apply text-gray-400 dark:text-gray-400; /* Tailwind CSS utility classes */
+}
