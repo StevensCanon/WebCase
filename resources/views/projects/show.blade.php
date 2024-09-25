@@ -28,7 +28,8 @@
                 <h3 class="font-bold text-lg text-gray-800">Más Información</h3>
                 <ul class="list-disc list-inside text-gray-600 mt-2">
                     <li><strong>Creador:</strong> {{ $project->creator }}</li>
-                    <li><strong>Categoría:</strong> {{ $project->category }}</li>
+                    <li><strong>Categoría:</strong> {{ $project->category ? $project->category->name : 'No asignada' }}
+                    </li>
                     <li><strong>Fecha de Creación:</strong> {{ $project->created_at->format('d/m/Y') }}</li>
                 </ul>
             </div>
@@ -41,7 +42,7 @@
 
         @if ($project->image)
             <div class="w-3/5">
-                <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-fill rounded-lg shadow-md">
+                <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-content rounded-lg shadow-md">
             </div>
         @endif
     </div>

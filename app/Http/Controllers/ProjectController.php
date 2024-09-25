@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\SaveProjectRequest;
 use App\Models\Project;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
-
+use  App\Events\ProjectSaved;
+use App\Models\Category;
 
 class ProjectController extends Controller
 {
@@ -17,7 +17,7 @@ class ProjectController extends Controller
 
         return view('projects.index', [
 
-            'projects' => Project::latest()->paginate(6)
+            'projects' => Project::with('category')->latest()->paginate(6)
         ]);
     }
 
@@ -41,6 +41,8 @@ class ProjectController extends Controller
 
         $project->save();
 
+        ProjectSaved::dispatch($project);
+
         return redirect()->route('projects.index')->with('status', 'El proyecto fue creado con éxito!');
     }
 
@@ -48,6 +50,8 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
+
+
 
         return view('projects.show', [
             'project' => $project
@@ -59,7 +63,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         return view('projects.edit', [
-            'project' => $project
+            'project' => $project,
+            'categories' => Category::pluck('name', 'id')
         ]);
     }
 
@@ -78,15 +83,7 @@ class ProjectController extends Controller
 
             $project->save();
 
-            /* $image = Image::make(Storage::get($project->image));
-            
-
-            $image->widen(600)->limitColors(255)->encode();
-
-            Storage::put($project->image, (string) $image);
-             */
-
-
+            ProjectSaved::dispatch($project);
         } else {
             $project->update(array_filter($request->validated()));
         }
@@ -110,7 +107,8 @@ class ProjectController extends Controller
     public function create()
     {
         return view('projects.create', [
-            'project' => new Project
+            'project' => new Project,
+            'categories' => Category::pluck('name', 'id')
         ]);
     }
 }

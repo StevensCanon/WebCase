@@ -28,21 +28,23 @@ class SaveProjectRequest extends FormRequest
             'titulo' => 'required',
             'url' => [
                 'required',
-                 Rule::unique('projects')->ignore($this->route('project'))
-        ],
+                Rule::unique('projects')->ignore($this->route('project'))
+            ],
             'description' => 'required',
-            'image' => [ $this->route('project') ? 'nullable': 'required', 'image']
+            'category_id' => ['required','exists:categories, id'] ,
+            'image' => [$this->route('project') ? 'nullable' : 'required', 'image'],
+
         ];
     }
 
     public function messages()
     {
-        return[
+        return [
             'titulo.required' => 'El proyecto necesita un titulo',
             'url.required' => 'El proyecto necesita una url',
             'description.required' => 'El proyecto necesita una descripcion',
-            
-            
+
+
         ];
     }
 }

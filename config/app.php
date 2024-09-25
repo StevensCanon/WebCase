@@ -125,10 +125,10 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'aliases' => [
-        // Otras definiciones...
-        'Image' => Intervention\Image\Facades\Image::class,
-    ],
+   'aliases' => [
+    // ...
+    'Image' => Intervention\Image\Facades\Image::class,
+],
     
 
 ];

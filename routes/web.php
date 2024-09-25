@@ -4,10 +4,14 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+
+/* DB::listen(function($query){
+    var_dump($query->sql);
+}); Revisar las consultaas de nuestra aplicacion */
 
 route::view('/', 'Home')->name('Home');
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,4 +28,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('portfolio', ProjectController::class)->parameters(['portfolio' => 'project'])->names('projects');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

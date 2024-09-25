@@ -24,7 +24,7 @@
             @foreach ($projects as $project)
                 <div class="max-w-sm bg-zinc-200 border border-zinc-200 rounded-lg shadow-lg">
                     @if ($project->image)
-                        <img class="w-full h-48 object-cover rounded-t-lg" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+                        <img class="w-full h-48 object-content rounded-t-lg" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
                     @endif
 
                     <div class="p-6">
