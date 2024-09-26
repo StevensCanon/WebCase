@@ -22,7 +22,7 @@
     <label for="category_id" class="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
     <select class="bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-sky-950 w-full p-2 mb-10"
             name="category_id" id="category_id">
-        <option value="" disabled selected>Seleccione</option>
+        <option value="" >Seleccione</option>
         @foreach ($categories as $id => $name)
             <option value="{{ $id }}"
                 @if ($id == old('category_id',$project->category_id) ) selected @endif>{{ $name }}

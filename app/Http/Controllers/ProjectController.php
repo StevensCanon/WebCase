@@ -2,22 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\SaveProjectRequest;
 use App\Models\Project;
 use Illuminate\Support\Facades\Storage;
 use  App\Events\ProjectSaved;
 use App\Models\Category;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
+use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ProjectController extends Controller
 {
+    use AuthorizesRequests;
 
 
     public function index()
     {
-
         return view('projects.index', [
+            'newProject' => new Project,
+            'projects' => Project::with('category')->latest()->paginate(6),
+            'deletedProjects' => Project::onlyTrashed()->get(),
+        ]);
+    }
 
-            'projects' => Project::with('category')->latest()->paginate(6)
+    public function create()
+
+    {
+        $this->authorize('create', $project = new Project);
+
+        return view('projects.create', [
+            'project' => $project,
+            'categories' => Category::pluck('name', 'id')
         ]);
     }
 
@@ -35,7 +53,10 @@ class ProjectController extends Controller
 
         ]); Forma optima para proteger nuestro fields, sin usar FormRequest */
 
+
         $project = new Project($request->validated());
+
+        $this->authorize('create', $project);
 
         $project->image = $request->file('image')->store('images');
 
@@ -62,6 +83,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+
+        $this->authorize('update', $project); // Cambiado
+
         return view('projects.edit', [
             'project' => $project,
             'categories' => Category::pluck('name', 'id')
@@ -70,6 +94,8 @@ class ProjectController extends Controller
 
     public function update(Project $project, SaveProjectRequest $request)
     {
+
+        $this->authorize('update', $project);
 
         if ($request->hasFile('image')) {
 
@@ -96,19 +122,38 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $this->authorize('delete', $project);
 
-        Storage::delete($project->image);
 
         $project->delete();
 
         return redirect()->route('projects.index')->with('status', 'El proyecto fue eliminado con éxito!');
     }
 
-    public function create()
+    public function forceDelete( $projectUrl)
     {
-        return view('projects.create', [
-            'project' => new Project,
-            'categories' => Category::pluck('name', 'id')
-        ]);
+
+        $project = Project::withTrashed()->whereUrl($projectUrl)->firstOrFail();
+        $this->authorize('forceDelete', $project);
+
+
+        Storage::delete($project->image);
+
+        $project->forceDelete();
+
+        return redirect()->route('projects.index')->with('status', 'El proyecto fue eliminado permanentemente');
+    }
+
+    public function restore( $projectUrl)
+    {
+
+        $project = Project::withTrashed()->whereUrl($projectUrl)->firstOrFail();
+
+        $this->authorize('restore', $project);
+
+
+        $project->restore();
+
+        return redirect()->route('projects.index')->with('status', 'El proyecto fue restaurado con éxito!');
     }
 }

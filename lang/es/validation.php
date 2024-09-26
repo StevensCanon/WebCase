@@ -111,6 +111,7 @@ return [
     'unique'               => ':attribute ya ha sido registrado.',
     'uploaded'             => 'Subir :attribute ha fallado.',
     'url'                  => 'El formato :attribute es inválido.',
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -129,6 +130,7 @@ return [
         ],
         'email'    => [
             'unique' => 'El :attribute ya ha sido registrado.',
+            'lowercase' => 'El :attribute debe estar en minúsculas.',
         ],
     ],
 

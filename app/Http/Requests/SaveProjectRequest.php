@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 
@@ -14,8 +15,18 @@ class SaveProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
+
         return true;
-    }
+
+     /* return $user = auth()->user(); // Verifica directamente
+     Log::info('Usuario autenticado en el controlador: ', ['user' => $user]);
+ 
+     if (!$user || $user->role !== 'admin') {
+         Log::warning('Acceso denegado: usuario no es admin.');
+         abort(403); */
+     }
+     
+    
 
     /**
      * Get the validation rules that apply to the request.
@@ -31,7 +42,7 @@ class SaveProjectRequest extends FormRequest
                 Rule::unique('projects')->ignore($this->route('project'))
             ],
             'description' => 'required',
-            'category_id' => ['required','exists:categories, id'] ,
+            'category_id' => ['required', 'exists:categories,id'],
             'image' => [$this->route('project') ? 'nullable' : 'required', 'image'],
 
         ];

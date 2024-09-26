@@ -3,7 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -27,5 +30,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('portfolio', ProjectController::class)->parameters(['portfolio' => 'project'])->names('projects');
 });
+
+Route::get('categorias/{category}', [CategoryController::class, 'show'])->name('categories.show');
+
+Route::patch('portfolio/{project}/restore', [ProjectController::class, 'restore'])->name('projects.restore');
+Route::delete('portfolio/{project}/forceDelete', [ProjectController::class, 'forceDelete'])->name('projects.forceDelete');
 
 require __DIR__ . '/auth.php';

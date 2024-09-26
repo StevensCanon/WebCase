@@ -26,8 +26,8 @@
         </div>
 
         <div class="flex justify-center">
-            <img src="https://www.cisinformatica.cat/wp-content/uploads/2023/05/porque-son-importantes-las-paginas-web-en-la-actualidad-3.jpg"
-                alt="Imagen informativa" class="rounded-lg shadow-lg w-full max-w-md">
+            <img src="{{asset('images/web.png')}}"
+                alt="Imagen informativa" class="rounded-lg shadow-lg w-full ">
         </div>
     </div>
 
