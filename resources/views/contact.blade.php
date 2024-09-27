@@ -6,7 +6,7 @@
 
     <div class="max-w-lg mx-auto my-6 p-10   rounded-lg shadow-lg bg-zinc-200">
 
-        <h1 class="text-3xl font-bold text-center mb-8">@lang('¡Envianos tu mensaje!')</h1>
+        <h1 class="text-3xl font-extrabold  text-center mb-8">@lang('¡Envianos tu mensaje!')</h1>
 
         <form method="POST" action="{{ route('messages.store') }}">
             @csrf

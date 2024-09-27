@@ -3,7 +3,7 @@
 @section('title', 'About')
 @section('content')
 <div class="mx-16 my-10">
-    <h1 class="text-3xl text-sky-400 font-bold mb-4">Acerca de nosotros</h1>
+    <h1 class="text-3xl text-sky-400 font-extrabold mb-4">Acerca de nosotros</h1>
     <p class="text-gray-300 mb-6">
         Somos una empresa dedicada a construir proyectos web. Conoce nuestro portafolio y descubre cómo podemos ayudar a llevar tu visión a la realidad.
     </p>

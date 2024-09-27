@@ -5,7 +5,7 @@
 
     <div class="mx-8 my-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-            <h1 class="text-4xl font-bold text-sky-400 mb-4">Hola </h1>
+            <h1 class="text-4xl font-extrabold text-sky-400 mb-4">Hola </h1>
             <p class="text-lg text-gray-300 mb-6">Bienvenid@ {{ $nombre ?? 'invitado' }}</p>
             <p class="text-justify text-zinc-300 mb-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac nisi et velit aliquet ullamcorper.
@@ -32,7 +32,7 @@
     </div>
 
     <section class="my-10 mx-8">
-        <h2 class="text-3xl font-semibold text-sky-400 mb-4 my-20">Acerca de nosotros</h2>
+        <h2 class="text-3xl font-extrabold text-sky-400 mb-4 my-20">Acerca de nosotros</h2>
         <p class="text-justify text-zinc-300 mb-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac nisi et velit aliquet ullamcorper.
             Sed vel tellus vel nunc cursus tincidunt. Nullam vitae nulla a purus lacinia luctus. Sed ut aliquam
@@ -55,7 +55,7 @@
     </section>
 
     <section class="my-10 mx-8">
-        <h2 class="text-3xl font-semibold text-sky-400 mb-4">Testimonios</h2>
+        <h2 class="text-3xl font-extrabold  text-sky-400 mb-4">Testimonios</h2>
         <div class="space-y-4">
             <blockquote class="border-l-4 border-sky-950 pl-4 text-zinc-300 italic">
                 "Su trabajo ha transformado nuestra presencia en línea. ¡Altamente recomendados!"

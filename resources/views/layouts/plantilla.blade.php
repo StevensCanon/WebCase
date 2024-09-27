@@ -9,13 +9,9 @@
     <title>@yield('title') </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <style>
-        .active a {
-            color: red;
-            text-decoration: none;
-        }
-    </style>
+    
 </head>
 
 <body>

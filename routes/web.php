@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\DB;
 route::view('/', 'Home')->name('Home');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $nombre = 'Stevens';
+   
+    return view('dashboard', compact('nombre'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

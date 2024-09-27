@@ -1,5 +1,4 @@
 {
-
     "Project Name": "Titulo del proyecto",
     "Description": "Descripción",
     "Project URL": "URL del proyecto",
@@ -37,5 +36,11 @@
     "Too Many Requests": "Demansiadas peticiones",
     "Unauthorized": "No autorizado",
     "Verify Your Email Address": "Verifica tu correo electrónico",
-    "You are receiving this email because we received a password reset request for your account.": "Ha recibido este mensaje porque se solicitó un restablecimiento de contraseña para su cuenta."
+    "You are receiving this email because we received a password reset request for your account.": "Ha recibido este mensaje porque se solicitó un restablecimiento de contraseña para su cuenta.",
+
+    "Forgot your password?": "Olvidaste tu contraseña?",
+    "LOG IN": "Iniciar Sesion",
+    "Already registered?": "¿Estas registrado?",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "¿Olvidaste tu contraseña? No hay problema. Solo indícanos tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña que te permitirá elegir una nueva.",
+    "EMAIL PASSWORD RESET LINK": "ENLACE PARA RESTABLECER CONTRASEÑA DE CORREO ELECTRÓNICO"
 }

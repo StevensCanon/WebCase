@@ -11,7 +11,7 @@
             <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a class="text-white font-bold mx-8" href="{{ route('dashboard') }}">
+                    <a class="text-white font-extrabold mx-8" href="{{ route('dashboard') }}">
                         WebCase
                     </a>
                 </div>

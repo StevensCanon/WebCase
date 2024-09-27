@@ -21,10 +21,11 @@ class ProjectController extends Controller
 
     public function index()
     {
+
         return view('projects.index', [
             'newProject' => new Project,
             'projects' => Project::with('category')->latest()->paginate(6),
-            'deletedProjects' => Project::onlyTrashed()->get(),
+            'deletedProjects' => Project::onlyTrashed()->get()
         ]);
     }
 
@@ -71,9 +72,6 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-
-
-
         return view('projects.show', [
             'project' => $project
         ]);
@@ -130,7 +128,7 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('status', 'El proyecto fue eliminado con éxito!');
     }
 
-    public function forceDelete( $projectUrl)
+    public function forceDelete($projectUrl)
     {
 
         $project = Project::withTrashed()->whereUrl($projectUrl)->firstOrFail();
@@ -144,7 +142,7 @@ class ProjectController extends Controller
         return redirect()->route('projects.index')->with('status', 'El proyecto fue eliminado permanentemente');
     }
 
-    public function restore( $projectUrl)
+    public function restore($projectUrl)
     {
 
         $project = Project::withTrashed()->whereUrl($projectUrl)->firstOrFail();

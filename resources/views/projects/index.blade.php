@@ -14,7 +14,7 @@
                     </p>
                 </div>
             @else
-                <h1 class="font-bold text-3xl text-sky-400">@lang('Projects')</h1>
+                <h1 class="font-extrabold text-3xl text-sky-400">@lang('Projects')</h1>
 
 
                 @can('create', $newProject)
@@ -57,41 +57,53 @@
         </div>
 
 
-        <div class="bg-zinc-400 rounded-md">
-        <h2 class="text-white mt-10">Proyectos Eliminados</h2>
-        <ul class="text-white mt-10">
-            @foreach ($deletedProjects as $deletedProject)
-                <li class="list-group-item">{{ $deletedProject->titulo }}</li>
+     
+       
 
-                @can('restore', $deletedProject)
-                    <form action="{{ route('projects.restore', $deletedProject) }}" method="POST" style="display:inline;">
-                        @csrf @method('PATCH')
-                        <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                            Restaurar
-                        </button>
-                    </form>
-                @endcan
 
-                @can('forceDelete', $deletedProject)
-                    <form action="{{ route('projects.forceDelete', $deletedProject) }}" method="POST"
-                        style="display:inline;" onsubmit="return confirm('Esta accion no se puede deshacer, ¿Estas seguro de querer eliminar el proyecto?')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-                            Eliminar permanentemente
-                        </button>
-                    </form>
-                @endcan
-            @endforeach
-        </ul>
-    </div>
 
 
 
         <div class="mt-10 flex justify-center">
             {{ $projects->links() }} <!-- Enlaces de paginación -->
+        </div>
+
+        <div class=" rounded-md p-6 my-20">
+            <h2 class="text-white text-2xl font-bold mt-10 flex items-center">
+                <i class="fas fa-trash-alt mr-2"></i> Proyectos Eliminados
+            </h2>
+            <ul class="text-white mt-4 space-y-4">
+                @foreach ($deletedProjects as $deletedProject)
+                    <li class="flex justify-between items-center border-b border-white py-2">
+                        <span>{{ $deletedProject->titulo }}</span>
+                        <div class="flex space-x-2">
+                            @can('restore', $deletedProject)
+                                <form action="{{ route('projects.restore', $deletedProject) }}" method="POST"
+                                    style="display:inline;">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit"
+                                        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-1 px-3 rounded flex items-center">
+                                        <i class="fas fa-undo-alt mr-1"></i> Restaurar
+                                    </button>
+                                </form>
+                            @endcan
+                            @can('forceDelete', $deletedProject)
+                                <form action="{{ route('projects.forceDelete', $deletedProject) }}" method="POST"
+                                    style="display:inline;"
+                                    onsubmit="return confirm('Esta acción no se puede deshacer, ¿Estás seguro de querer eliminar el proyecto?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded flex items-center">
+                                        <i class="fas fa-trash mr-1"></i> Eliminar permanentemente
+                                    </button>
+                                </form>
+                            @endcan
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
         </div>
 
 
