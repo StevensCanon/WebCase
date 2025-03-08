@@ -13,6 +13,5 @@
     <p><strong>Asunto: {{$msg['subject']}}</strong></p>
     <p>Contenido: {{$msg['content']}}</p>
 
-    {{ var_dump($msg)}}
 </body>
 </html>

@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\DB;
     var_dump($query->sql);
 }); Revisar las consultaas de nuestra aplicacion */
 
-route::view('/', 'Home')->name('Home');
+route::view('/', 'Home')->name('home');
 
 Route::get('/dashboard', function () {
     $nombre = 'Stevens';
-   
+
     return view('dashboard', compact('nombre'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 

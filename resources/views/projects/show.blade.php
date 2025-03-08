@@ -3,7 +3,7 @@
 @section('title', 'Portafolio | ' . $project->titulo)
 @section('content')
 
-    <div class="mx-auto max-w-4xl my-10 p-6 bg-white rounded-lg shadow-lg">
+    <div class="mx-auto max-w-5xl my-10 p-6 bg-white rounded-lg shadow-lg">
         <div class="flex">
             <div class="flex-1 pr-4">
                 <h2 class="font-bold text-3xl text-slate-900 mb-4">{{ $project->titulo }}</h2>
