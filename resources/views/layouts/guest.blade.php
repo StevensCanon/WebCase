@@ -37,7 +37,7 @@
         </div>
 
         <div class="pt-10">
-            <a class="text-white underline" href="{{route('Home')}}">Volver al home</a>
+            <a class="text-white underline" href="{{route('home')}}">Volver al home</a>
         </div>
     </div>
 </body>

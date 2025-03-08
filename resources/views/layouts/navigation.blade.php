@@ -78,7 +78,7 @@
         <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
                 <a href="{{ route('dashboard') }}"
-                    class="{{ setActive('Home') }} block text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">{{ __('Inicio') }}</a>
+                    class="{{ setActive('home') }} block text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">{{ __('Inicio') }}</a>
                 <a href="{{ route('about') }}"
                     class="{{ setActive('about') }} block text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">{{ __('About') }}</a>
                 <a href="{{ route('projects.index') }}"

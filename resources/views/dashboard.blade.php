@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Home')
+@section('title', 'home')
 @section('content')
 
     <div class="mx-8 my-10 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -65,12 +65,12 @@
                 "Un equipo excepcional. Los resultados superaron nuestras expectativas."
                 <footer class="mt-2">— Empresa XYZ</footer>
             </blockquote>
-           
+
             <blockquote class="border-l-4 border-sky-950 pl-4 text-zinc-300 italic">
                 "Su trabajo ha transformado nuestra presencia en línea. ¡Altamente recomendados!"
                 <footer class="mt-2">— Cliente Satisfecho</footer>
             </blockquote>
-          
+
             <blockquote class="border-l-4 border-sky-950 pl-4 text-zinc-300 italic">
                 "Su trabajo ha transformado nuestra presencia en línea. ¡Altamente recomendados!"
                 <footer class="mt-2">— Cliente Satisfecho</footer>

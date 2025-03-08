@@ -53,7 +53,7 @@
         <h1>404</h1>
         <h2>Página no encontrada</h2>
         <p>Lo sentimos, no encontramos lo que buscas.</p>
-        <p><a href="{{ url('Home') }}">Volver a la página principal</a></p>
+        <p><a href="{{ url('home') }}">Volver a la página principal</a></p>
     </div>
 </body>
 </html>

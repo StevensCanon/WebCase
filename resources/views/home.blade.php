@@ -37,8 +37,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <a href="{{ route('Home') }}"
-                class="{{ setActive('Home') }} block text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">{{ __('Home') }}</a>
+            <a href="{{ route('home') }}"
+                class="{{ setActive('home') }} block text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">{{ __('home') }}</a>
             <a href="{{ route('login') }}"
                 class="{{ setActive('login') }} block text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 px-3 py-2 rounded-md text-base font-medium">{{ __('Login') }}</a>
             <a href="{{ route('register') }}"
