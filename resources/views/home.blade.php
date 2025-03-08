@@ -4,7 +4,7 @@
             <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a class="text-gray-900 dark:text-white font-bold mx-8" href="{{ route('Home') }}">
+                    <a class="text-gray-900 dark:text-white font-bold mx-8" href="{{ route('home') }}">
                         WebCase
                     </a>
                 </div>
